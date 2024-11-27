@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 use App\Form\AdminType;
+use App\Service\ChatGptService;
 use Doctrine\Persistence\ManagerRegistry;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use OpenAI\Exceptions\ErrorException;
 use Symfony\Component\HttpFoundation\Request;
 
 // Importez les bonnes classes
@@ -15,6 +19,7 @@ use App\Repository\AdminRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use OpenAI;
 
 /**
  * @method getDoctrine()
@@ -92,6 +97,7 @@ class AdminController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/admin/delete/{id}", name="admin_delete")
      */
@@ -117,6 +123,7 @@ class AdminController extends AbstractController
         // Redirect to the admin list page
         return $this->redirectToRoute('app_admin');
     }
+
     #[Route('/admin/search', name: 'admin_search', methods: ['GET'])]
     public function searchByName(Request $request): Response
     {
@@ -132,10 +139,4 @@ class AdminController extends AbstractController
             'name' => $name,
         ]);
     }
-
-
-
-
-
-
 }

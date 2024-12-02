@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    outline: none;
+    color: black;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #008bfc, #f60445, #faf8f8);
+}
+.container{
+    position: relative;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #888888;
+}
+.container{
+    width: 400px;
+    background: rgba(250, 248, 215, 0.66);
+    border-radius: 10px;
+    box-shadow: 0 0 15px;
+}
+.switch{
+    position: absolute;
+    right: 30px;
+    display: flex;
+    border-bottom: 1px solid #fe0066;
+}
+.outer{
+    margin-right: 180px;
+}
+.login{
+    padding: 5px 12px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    text-align: right;
+    margin-left: 4px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.signup{
+    padding: 5px 12px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    text-align: right;
+    margin-left: 4px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.outer{
+    width: 100%;
+    margin-top: 40px ;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+#form{
+    width: 200%;
+    position: relative;
+    display: flex;
+    margin: auto;
+    transition: 0.2s ease-in-out;
+}
+#page{
+    margin: auto;
+    width: 100%;
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.element{
+    position: relative;
+}
+.element input{
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: rgba(42, 42, 42, 0.06);
+    border: 1px solid #f5f4f4;
+
+    padding-left: 40px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+input::placeholder{
+    color: #d4cdcd;
+    font-size: 20px;
+}
+.element span{
+    position: absolute;
+    left:30px;
+    top: 12px;
+    font-size: 18px;
+}
+#btn{
+    padding: 5px;
+    background: linear-gradient(45deg,#00d5fc,#faf8f8);
+    border-radius: 50px;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 5px;
+    cursor: pointer;
+}
+#btn:active{
+    transform: scale(1.01);
+}
+.switch:after{
+    content: '';
+    height: 6px;
+    width: 60px;
+    background: #fe0066;
+    border-radius: 60px 60px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    transition: 0.3s ease;
+
+}
+.switch.active:after{
+    left: 82px;
+    width: 70px;
+}
+.switch:active{
+    border-bottom: 1px solid #12ff00;
+}

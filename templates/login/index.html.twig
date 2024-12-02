@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <meta name="description" content="{% block description %}Description here{% endblock %}">
+
+    <meta property="og:title" content="{% block og_title %}My Website{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{{ app.request.uri }}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}/path/to/image.jpg{% endblock %}">
+    <meta property="og:image:alt" content="{% block og_image_alt %}Image description{% endblock %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+<div class="container">
+    <div class="switch">
+        <div class="login" onclick="tab2();">Login</div>
+        <div class="signup" onclick="tab1();">SignUp</div>
+    </div>
+
+    <div class="outer">
+        <form id="form" method="POST" action="{{ path('app_login') }}">
+            <div id="page">
+                <label>Login Form</label>
+
+                <div class="element">
+                    <input id="test" name="login" type="text" placeholder="Username">
+                    <span class="fas fa-user"></span>
+                </div>
+
+                <div class="element">
+                    <input name="mdp" type="password" placeholder="Password">
+                    <span class="fas fa-lock"></span>
+                </div>
+
+                <button id="btn">Login</button>
+            </div>
+
+            <div id="page">
+                <label>SignUp Form</label>
+
+                <div class="element">
+                    <input name="email" type="text" placeholder="Email Address">
+                    <span class="fas fa-envelope"></span>
+                </div>
+
+                <div class="element">
+                    <input name="username" type="text" placeholder="Username">
+                    <span class="fas fa-user"></span>
+                </div>
+
+                <div class="element">
+                    <input name="password" type="password" placeholder="Password">
+                    <span class="fas fa-lock"></span>
+                </div>
+
+                <button id="btn">SignUp</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+</body>
+<script>
+
+
+    const login = document.querySelector(".login");
+    const SignUp = document.querySelector(".signup");
+    const form = document.querySelector("#form");
+    const switchs = document.querySelectorAll(".switch");
+
+    let current = 1;
+    function tab2(){
+        form.style.marginLeft = "0";
+        login.style.background = "linear-gradient(45deg,#00d5fc,#faf8f8);"
+        SignUp.style.background = "none"
+        switchs[current-1].classList.remove("active");
+    }
+    function tab1(){
+        form.style.marginLeft = "-100%";
+        SignUp.style.background = "linear-gradient(45deg,#00d5fc,#faf8f8);"
+        login.style.background = "none"
+        switchs[current-1].classList.add("active");
+    }
+
+</script>
+</html>

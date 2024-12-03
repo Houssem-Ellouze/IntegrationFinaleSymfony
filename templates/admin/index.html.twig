@@ -188,6 +188,9 @@
             padding: 8px 16px;
             border-radius: 5px;
         }
+        #logout{
+            left: 300px;
+        }
 
 
 
@@ -222,6 +225,8 @@
                         <span class="badge rounded-pill badge-notification bg-danger ms-1">2</span>
                     </a>
                 </li>
+
+
             </ul>
             <!-- Right elements -->
             <ul class="navbar-nav flex-row align-items-center">
@@ -235,8 +240,10 @@
                     <a class="nav-link d-flex align-items-center" href="#"><i class="fas fa-plus-circle fa-lg"></i></a>
                 </li>
             </ul>
+            <a id="logout" class="btn btn-warning" href="{{ path('app_login') }}">LogOut</a>
         </div>
     </nav>
+
 
     <!-- Navbar -->
 
@@ -252,6 +259,9 @@
             <li class="w-100 d-flex flex-row j*"><a class="dropdown-item nav-link text-white m-0" href="#">Recruteur</a></li>
         <button class="btn btn-secondary position-absolute aside-toggle" style="top:50px;right: -20px"><i class="fa-solid fa-arrow-right"></i></button>
         <!-- Dropdown Menu for Candidature -->
+
+
+
         <div class="w-100 dropdown -p-2">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="Candidature" data-toggle="dropdown" data-bs-target="#Candidature" aria-haspopup="true" aria-expanded="false">
                 Candidature
@@ -260,7 +270,12 @@
                 <li class="w-100 d-flex flex-row "><a class="dropdown-item nav-link text-dark m-0" href="#">Offre</a></li>
                 <li class="w-100 d-flex flex-row j*"><a class="dropdown-item nav-link text-dark m-0" href="#">Demande</a></li>
             </ul>
+
+
+
+
         </div>
+
     </div>
 
     <div class="content">
@@ -318,6 +333,9 @@
                 </tbody>
             </table>
         </div>
+
+
+
     </div>
     <footer class="w-100 position-fixed bottom-0 bg-body-tertiary d-flex flex-column text-center"  style="height: 100px">
         <!-- Grid container -->

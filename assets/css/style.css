@@ -11,7 +11,7 @@ body{
     justify-content: center;
     text-align: center;
     align-items: center;
-    background: linear-gradient(-45deg, #008bfc, #f60445, #faf8f8);
+    background: linear-gradient(-45deg, #008bfc, #3f51b5, #faf8f8);
 }
 .container{
     position: relative;

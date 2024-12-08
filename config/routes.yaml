@@ -3,3 +3,29 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+# config/routes.yaml
+
+# Route pour la page de création
+admin_create:
+    path: /admin/create
+    controller: App\Controller\AdminController::create
+
+# Route pour la page de mise à jour
+update:
+    path: /admin/update/{id}
+    controller: App\Controller\AdminController::update
+    requirements:
+        id: \d+  # Assurez-vous que l'id soit un nombre entier
+
+# Route pour la page de suppression
+delete:
+    path: /admin/delete/{id}
+    controller: App\Controller\AdminController::delete
+    requirements:
+        id: \d+  # Assurez-vous que l'id soit un nombre entier
+
+# Route pour la recherche
+admin_search:
+    path: /admin/search
+    controller: App\Controller\AdminController::search
+

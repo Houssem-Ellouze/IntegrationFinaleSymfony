@@ -43,4 +43,5 @@ class AdminType extends AbstractType
             'data_class' => Admin::class,
         ]);
     }
+
 }

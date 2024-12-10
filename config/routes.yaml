@@ -24,8 +24,7 @@ delete:
     requirements:
         id: \d+  # Assurez-vous que l'id soit un nombre entier
 
-# Route pour la recherche
 admin_search:
     path: /admin/search
-    controller: App\Controller\AdminController::search
+    controller: App\Controller\AdminController::searchByName
 

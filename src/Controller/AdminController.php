@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\AdminType;
+use App\Service\DataEmailService;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,8 @@ use App\Repository\AdminRepository;
 class AdminController extends AbstractController
 {
     private AdminRepository $adminRepository;
+
+
 
 
     public function __construct(AdminRepository $adminRepository)
@@ -124,5 +127,7 @@ class AdminController extends AbstractController
             'averageAge' => $averageAge,
         ]);
     }
+
+
 
 }

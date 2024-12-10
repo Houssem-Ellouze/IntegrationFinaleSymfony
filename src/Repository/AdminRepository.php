@@ -13,31 +13,6 @@ class AdminRepository extends ServiceEntityRepository
         parent::__construct($registry, Admin::class);
     }
 
-
-//    /**
-//     * @return Admin[] Returns an array of Admin objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('a.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Admin
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
     public function save(Admin $admin): void
     {
         $entityManager = $this->getEntityManager(); // Get the entity manager
@@ -83,19 +58,7 @@ class AdminRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
-    public function countAdminsForMonth(\DateTime $date): int
-    {
-        $startOfMonth = (new \DateTime($date->format('Y-m-01')))->setTime(0, 0, 0);
-        $endOfMonth = (new \DateTime($date->format('Y-m-t')))->setTime(23, 59, 59);
 
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.createdAt BETWEEN :start AND :end')
-            ->setParameter('start', $startOfMonth)
-            ->setParameter('end', $endOfMonth)
-            ->select('COUNT(a)')
-            ->getQuery()
-            ->getSingleScalarResult();
-    }
 
 
 }

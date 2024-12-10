@@ -191,44 +191,45 @@
         #logout{
             left: 300px;
         }
-        .STATISTIQUE {
-            display: flex;                       /* Utilisation de Flexbox */
-            justify-content: space-between;      /* Espacement entre les éléments */
-            align-items: flex-start;             /* Alignement en haut */
-            gap: 20px;                           /* Espacement entre les éléments */
-            background-color: #f0f0f0;           /* Couleur de fond du parent */
-            padding: 20px;                       /* Espacement intérieur du parent */
-            border-radius: 8px;                  /* Coins arrondis pour un look plus doux */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour le parent */
+        .STATISTICS {
+            display: flex;                       /* Use Flexbox */
+            justify-content: space-between;      /* Space between items */
+            align-items: flex-start;             /* Align items to the top */
+            gap: 20px;                           /* Space between items */
+            background-color: #f0f0f0;           /* Parent background color */
+            padding: 20px;                       /* Inner padding for parent */
+            border-radius: 8px;                  /* Rounded corners for a softer look */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the parent */
         }
 
         .NB_ADMIN {
-            flex: 1;                             /* Les deux blocs prennent une largeur égale */
-            background-color: #e7f7ff;           /* Fond blanc pour le premier fils */
-            padding: 20px;                       /* Espacement intérieur */
-            border-radius: 8px;                  /* Coins arrondis */
-            border: 1px solid #ccc;              /* Bordure grise */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+            flex: 1;                             /* Both blocks take equal width */
+            background-color: #e7f7ff;           /* Light blue background */
+            padding: 20px;                       /* Inner padding */
+            border-radius: 8px;                  /* Rounded corners */
+            border: 1px solid #ccc;              /* Gray border */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
         .AVG {
-            flex: 1;                             /* Les deux blocs prennent une largeur égale */
-            background-color: #e7f7ff;           /* Fond bleu clair pour le deuxième fils */
-            padding: 20px;                       /* Espacement intérieur */
-            border-radius: 8px;                  /* Coins arrondis */
-            border: 1px solid #ccc;              /* Bordure grise */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+            flex: 1;                             /* Both blocks take equal width */
+            background-color: #e7f7ff;           /* Light blue background */
+            padding: 20px;                       /* Inner padding */
+            border-radius: 8px;                  /* Rounded corners */
+            border: 1px solid #ccc;              /* Gray border */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
         .NB_ADMIN h2, .AVG h2 {
-            margin-bottom: 10px;                 /* Espacement sous les titres */
-            color: #333;                         /* Couleur des titres */
+            margin-bottom: 10px;                 /* Space below headings */
+            color: #333;                         /* Heading color */
         }
 
         .NB_ADMIN p, .AVG p {
-            font-size: 1.2em;                    /* Taille du texte */
-            color: #555;                         /* Couleur du texte */
+            font-size: 1.2em;                    /* Font size */
+            color: #555;                         /* Text color */
         }
+
 
 
 
@@ -328,16 +329,17 @@
 
         <div class="container">
 
-            <div class="STATISTIQUE">
-            <div class="NB_ADMIN">
-                <h2>Nombre total d'administrateurs</h2>
-                <p>Il y a actuellement <strong>{{ nbAdmins }}</strong> administrateur(s) dans le système.</p>
+            <div class="STATISTICS">
+                <div class="NB_ADMIN">
+                    <h2>Total Number of Administrators</h2>
+                    <p>Currently, there are <strong>{{ nbAdmins }}</strong> administrator(s) in the system.</p>
+                </div>
+                <div class="AVG">
+                    <h2>Average Age of Administrators</h2>
+                    <p>The average age of administrators is <strong>{{ averageAge|number_format(2, '.', ',') }}</strong> years.</p>
+                </div>
             </div>
-            <div class="AVG">
-                <h2>Moyenne d'âge des administrateurs</h2>
-                <p>La moyenne d'âge des administrateurs est de <strong>{{ averageAge|number_format(2, '.', ',') }}</strong> ans.</p>
-            </div>
-            </div>
+
 
             <div class="methods">
             <form method="get" action="{{ path('admin_search') }}" class="form-inline my-2 my-lg-0 d-flex align-items-center">

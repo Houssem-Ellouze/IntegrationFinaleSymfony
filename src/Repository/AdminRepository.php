@@ -59,5 +59,43 @@ class AdminRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    /**
+     * Compte le nombre total d'admins
+     *
+     * @return int
+     */
+    public function countAdmins(): int
+    {
+        return $this->createQueryBuilder('a')
+            ->select('COUNT(a.id) as nbAdmins')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+    /**
+     * Calcule la moyenne d'âge des administrateurs
+     *
+     * @return float|null
+     */
+    public function getAverageAge(): ?float
+    {
+        return $this->createQueryBuilder('a')
+            ->select('AVG(a.age) as avgAge') // Suppose que le champ "age" existe dans l'entité "Admin"
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+    public function countAdminsForMonth(\DateTime $date): int
+    {
+        $startOfMonth = (new \DateTime($date->format('Y-m-01')))->setTime(0, 0, 0);
+        $endOfMonth = (new \DateTime($date->format('Y-m-t')))->setTime(23, 59, 59);
+
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.createdAt BETWEEN :start AND :end')
+            ->setParameter('start', $startOfMonth)
+            ->setParameter('end', $endOfMonth)
+            ->select('COUNT(a)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 
 }

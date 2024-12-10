@@ -23,14 +23,20 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin', name: 'app_admin')]
-    public function index(): Response
+    public function index(AdminRepository $adminRepository): Response
     {
-        $data = $this->adminRepository->findAll();
+        $nbAdmins = $adminRepository->countAdmins(); // Replace `countAdmins` with your query logic.
+        $averageAge = $this->adminRepository->getAverageAge();
 
         return $this->render('admin/index.html.twig', [
-            'list' => $data,
+            'list' => $adminRepository->findAll(),
+            'nbAdmins' => $nbAdmins,
+            'averageAge' => $averageAge,
         ]);
     }
+    /**
+     * @Route("/admin/age-distribution", name="admin_age_distribution")
+     */
 
     #[Route('/admin/create', name: 'admin_create')]
     public function create(Request $request, ManagerRegistry $doctrine): Response
@@ -109,4 +115,14 @@ class AdminController extends AbstractController
             'name' => $name,
         ]);
     }
+    #[Route('/admin/average-age', name: 'admin_average_age', methods: ['GET'])]
+    public function getAverageAge(): Response
+    {
+        $averageAge = $this->adminRepository->getAverageAge();
+
+        return $this->render('admin/average_age.html.twig', [
+            'averageAge' => $averageAge,
+        ]);
+    }
+
 }

@@ -191,6 +191,45 @@
         #logout{
             left: 300px;
         }
+        .STATISTIQUE {
+            display: flex;                       /* Utilisation de Flexbox */
+            justify-content: space-between;      /* Espacement entre les éléments */
+            align-items: flex-start;             /* Alignement en haut */
+            gap: 20px;                           /* Espacement entre les éléments */
+            background-color: #f0f0f0;           /* Couleur de fond du parent */
+            padding: 20px;                       /* Espacement intérieur du parent */
+            border-radius: 8px;                  /* Coins arrondis pour un look plus doux */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour le parent */
+        }
+
+        .NB_ADMIN {
+            flex: 1;                             /* Les deux blocs prennent une largeur égale */
+            background-color: #e7f7ff;           /* Fond blanc pour le premier fils */
+            padding: 20px;                       /* Espacement intérieur */
+            border-radius: 8px;                  /* Coins arrondis */
+            border: 1px solid #ccc;              /* Bordure grise */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+        }
+
+        .AVG {
+            flex: 1;                             /* Les deux blocs prennent une largeur égale */
+            background-color: #e7f7ff;           /* Fond bleu clair pour le deuxième fils */
+            padding: 20px;                       /* Espacement intérieur */
+            border-radius: 8px;                  /* Coins arrondis */
+            border: 1px solid #ccc;              /* Bordure grise */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+        }
+
+        .NB_ADMIN h2, .AVG h2 {
+            margin-bottom: 10px;                 /* Espacement sous les titres */
+            color: #333;                         /* Couleur des titres */
+        }
+
+        .NB_ADMIN p, .AVG p {
+            font-size: 1.2em;                    /* Taille du texte */
+            color: #555;                         /* Couleur du texte */
+        }
+
 
 
 
@@ -288,6 +327,18 @@
         {% endfor %}
 
         <div class="container">
+
+            <div class="STATISTIQUE">
+            <div class="NB_ADMIN">
+                <h2>Nombre total d'administrateurs</h2>
+                <p>Il y a actuellement <strong>{{ nbAdmins }}</strong> administrateur(s) dans le système.</p>
+            </div>
+            <div class="AVG">
+                <h2>Moyenne d'âge des administrateurs</h2>
+                <p>La moyenne d'âge des administrateurs est de <strong>{{ averageAge|number_format(2, '.', ',') }}</strong> ans.</p>
+            </div>
+            </div>
+
             <div class="methods">
             <form method="get" action="{{ path('admin_search') }}" class="form-inline my-2 my-lg-0 d-flex align-items-center">
                 <a class="btn btn-danger my-2 my-sm-0" href="{{ path('admin_create') }}">Create</a>

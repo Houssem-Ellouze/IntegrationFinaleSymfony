@@ -272,7 +272,6 @@
             <ul class="navbar-nav flex-row align-items-center">
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center" href="#">
-                        <img src="https://www.facebook.com/profile.php?id=100090082430281" class="rounded-circle" height="22" alt="Avatar" loading="lazy" />
                         <strong class="ms-1">Houssem</strong>
                     </a>
                 </li>
@@ -280,7 +279,7 @@
                     <a class="nav-link d-flex align-items-center" href="#"><i class="fas fa-plus-circle fa-lg"></i></a>
                 </li>
             </ul>
-            <a id="logout" class="btn btn-warning" href="{{ path('app_login') }}">LogOut</a>
+            <a id="logout" class="btn btn-warning" href="{{ path('app_default') }}">LogOut</a>
         </div>
     </nav>
 
@@ -295,8 +294,8 @@
             Users
         </button>
 
-            <li class="w-100 d-flex flex-row "><a class="dropdown-item nav-link text-white m-0" href="#">Candidat</a></li>
-            <li class="w-100 d-flex flex-row j*"><a class="dropdown-item nav-link text-white m-0" href="#">Recruteur</a></li>
+            <li class="w-100 d-flex flex-row "><a class="dropdown-item nav-link text-white m-0" href="{{ path('app_user_index') }}">User</a></li>
+            <li class="w-100 d-flex flex-row j*"><a class="dropdown-item nav-link text-white m-0" href="{{ path('app_recruteur_index') }}">Recruteur</a></li>
         <button class="btn btn-secondary position-absolute aside-toggle" style="top:50px;right: -20px"><i class="fa-solid fa-arrow-right"></i></button>
         <!-- Dropdown Menu for Candidature -->
 
@@ -307,8 +306,8 @@
                 Candidature
             </button>
             <ul class="w-100 d-flex flex-column dropdown-menu" aria-labelledby="Candidature" id="Candidature">
-                <li class="w-100 d-flex flex-row "><a class="dropdown-item nav-link text-dark m-0" href="#">Offre</a></li>
-                <li class="w-100 d-flex flex-row j*"><a class="dropdown-item nav-link text-dark m-0" href="#">Demande</a></li>
+                <li class="w-100 d-flex flex-row "><a class="dropdown-item nav-link text-dark m-0" href="{{ path('home') }}">Offre</a></li>
+                <li class="w-100 d-flex flex-row j*"><a class="dropdown-item nav-link text-dark m-0" href="{{ path('app_demande_index') }}">Demande</a></li>
             </ul>
 
 
